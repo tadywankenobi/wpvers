@@ -105,6 +105,10 @@
 				$class="red";
 			}
 
+
+			// I called this "site" as I used it to generate a url link around the content in the table.
+			// I also removed the prefixing content to help generate this link.
+
 			//$site = substr($item,11,-24);
 			$site = substr($item,0,-24);
 
