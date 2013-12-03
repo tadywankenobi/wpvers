@@ -23,7 +23,7 @@
 	<meta http-equiv="cleartype" content="on">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>Arekibo Wordpress Directories &amp; Versions</title>
+	<title>Wordpress Directories &amp; Versions</title>
 
 	<style>
 	/* I hate putting styles here, but it's handy for single file use */
@@ -48,7 +48,7 @@
 	
 	<header>
 		<div class="container">
-			<h1>Arekibo Wordpress Installs &amp; Versions (Current Version <?php echo $currVer; ?>)</h1>
+			<h1>Wordpress Installs &amp; Versions (Current Version <?php echo $currVer; ?>)</h1>
 		</div>
 	</header>
 
@@ -68,13 +68,17 @@
 	// D:\\wwwroot\\*\\wp-includes\\version.php
 
 	// $list = glob("D:\\wwwroot\\*\\wp-includes\\version.php"); // Windows
-	$list = glob('/Users/tadywalsh/Dropbox/Sites/arekibo/*/wp-includes/version.php'); //UNIX
+	$list = glob('/Users/Path/to/sites/*/wp-includes/version.php'); //UNIX
 
 	$dirs = array();
 
 	foreach($list as $item){
 		if(file_exists($item)) {
 			include $item;
+
+			/* 	Talked about using version_compare, but not sure it will give me the 
+				flexibility I want in the "if" sections below
+			*/
 
 			// Change the site version number and current version into a usable number: 3.7.1 -> 3.71
 			$verChk = explode('.',$wp_version);
